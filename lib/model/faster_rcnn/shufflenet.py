@@ -186,7 +186,7 @@ class shufflenetv2(_fasterRCNN):
     # shufflenet.classifier = nn.Sequential(*list(shufflenet.features._modules.values())[-1:]) # ???
 
     # Build shufflenetv2
-    self.RCNN_base = nn.Sequential(*(list(mobilenet.features._modules.values())))
+    self.RCNN_base = nn.Sequential(*(list(shufflenetv2.features._modules.values())))
 
     if self.lighthead:
       self.RCNN_top = nn.Sequential(nn.Linear(490*7*7, 2048), nn.ReLU(True))
