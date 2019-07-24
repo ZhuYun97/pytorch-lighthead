@@ -97,10 +97,10 @@ class ShuffleBlock(nn.Module):
 
 
 class ShuffleNet2(nn.Module):
-  def __init__(self, num_classes=2, input_size=224, net_type=1):
+  def __init__(self, num_classes=20, input_size=224, net_type=1):
     super(ShuffleNet2, self).__init__()
     assert input_size % 32 == 0 # 因为一共会下采样32倍
-    
+    self.num_classes = num_classes
     
     self.stage_repeat_num = [4, 8, 4]
     if net_type == 0.5:
@@ -168,6 +168,7 @@ class ShuffleNet2(nn.Module):
 class shufflenetv2(_fasterRCNN):
   def __init__(self, classes, pretrained=False, class_agnostic=False, lighthead=False):
       # self.model_path = 'data/pretrained_model/mobilenet_v2.pth.tar'
+      self.num_classes = classes
       self.pretrained = pretrained
       self.class_agnostic = class_agnostic
       self.lighthead = lighthead
