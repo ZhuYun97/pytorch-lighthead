@@ -120,6 +120,8 @@ class ShuffleNet2(nn.Module):
     in_c = self.out_channels[1]
     
     self.features = []
+    self.features.append(self.conv1)
+    self.features.append(self.maxpool)
     for stage_idx in range(len(self.stage_repeat_num)):
       out_c = self.out_channels[2+stage_idx]
       repeat_num = self.stage_repeat_num[stage_idx]
