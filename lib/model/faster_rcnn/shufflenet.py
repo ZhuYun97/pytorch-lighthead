@@ -168,7 +168,7 @@ class ShuffleNet2(nn.Module):
 class shufflenetv2(_fasterRCNN):
   def __init__(self, classes, pretrained=False, class_agnostic=False, lighthead=False):
       # self.model_path = 'data/pretrained_model/mobilenet_v2.pth.tar'
-      self.num_classes = classes
+      self.num_classes = 20 # modify your classes num
       self.pretrained = pretrained
       self.class_agnostic = class_agnostic
       self.lighthead = lighthead
