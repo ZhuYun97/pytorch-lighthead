@@ -177,7 +177,7 @@ class shufflenetv2(_fasterRCNN):
 
       _fasterRCNN.__init__(self, classes, class_agnostic, lighthead, compact_mode=False)
 
-  def _init_module(self):
+  def _init_modules(self):
     shufflenet = ShuffleNet2()
     if self.pretrained:
       print("not impelemented!")
