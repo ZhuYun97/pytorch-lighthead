@@ -18,7 +18,8 @@ class _RPN(nn.Module):
     def __init__(self, din):
         super(_RPN, self).__init__()
 
-        self.din = din  # get depth of input feature map, e.g., 512
+        #self.din = din  # get depth of input feature map, e.g., 512
+        self.din = 1024
         self.anchor_scales = cfg.ANCHOR_SCALES
         self.anchor_ratios = cfg.ANCHOR_RATIOS
         self.feat_stride = cfg.FEAT_STRIDE[0]
