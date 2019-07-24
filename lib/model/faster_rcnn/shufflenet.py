@@ -134,7 +134,7 @@ class ShuffleNet2(nn.Module):
     in_c = self.out_channels[-2]
     out_c = self.out_channels[-1]
     self.conv5 = conv_1x1_bn(in_c, out_c, 1)
-    self.features.append(self.conv5)
+    #self.features.append(self.conv5)
     self.features = nn.Sequential(*self.features)
     
     
