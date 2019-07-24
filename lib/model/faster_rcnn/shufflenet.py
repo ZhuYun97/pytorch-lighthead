@@ -205,12 +205,12 @@ class shufflenetv2(_fasterRCNN):
     else:
       self.RCNN_bbox_pred = nn.Linear(c_in, 4*self.num_classes)
 
-    def _head_to_tail(self, pool5):
-        if self.lighthead:
-            pool5_flat = pool5.view(pool5.size(0), -1)
-            fc7 = self.RCNN_top(pool5_flat)    # or two large fully-connected layers
-        else:
-            print(pool5.shape)
-            fc7 = self.RCNN_top(pool5)
-            fc7 = fc7.view(fc7.size(0), -1)
-        return fc7
+  def _head_to_tail(self, pool5):
+      if self.lighthead:
+          pool5_flat = pool5.view(pool5.size(0), -1)
+          fc7 = self.RCNN_top(pool5_flat)    # or two large fully-connected layers
+      else:
+          print(pool5.shape)
+          fc7 = self.RCNN_top(pool5)
+          fc7 = fc7.view(fc7.size(0), -1)
+      return fc7

@@ -34,6 +34,8 @@ class _fasterRCNN(nn.Module):
             self.lh_relu = nn.ReLU(inplace=True)
 
         # define rpn
+        if lighthead:
+            self.dout_base_model = self.dout_lh_base_model
         self.RCNN_rpn = _RPN(self.dout_base_model)
         self.RCNN_proposal_target = _ProposalTargetLayer(self.n_classes)
         self.RCNN_roi_pool = _RoIPooling(cfg.POOLING_SIZE, cfg.POOLING_SIZE, 1.0/16.0)
