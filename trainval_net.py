@@ -288,7 +288,7 @@ if __name__ == '__main__':
     elif args.net == 'squeeze1_1':
         _RCNN = squeezenet(imdb.classes, version='1_1', pretrained=True, class_agnostic=args.class_agnostic, lighthead=lighthead)
     elif args.net == 'mobilenet':
-        _RCNN = mobilenetv2(imdb.classes, pretrained=True, class_agnostic=args.class_agnostic, lighthead=lighthead)
+        _RCNN = mobilenetv2(imdb.classes, pretrained=False, class_agnostic=args.class_agnostic, lighthead=lighthead)
     elif args.net == 'shufflenet':
         _RCNN = shufflenetv2(imdb.classes, pretrained=False, class_agnostic=args.class_agnostic, lighthead=lighthead)
 
